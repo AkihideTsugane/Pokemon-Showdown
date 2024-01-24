@@ -18445,7 +18445,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	kappa: {
 		num: 1026,
 		name: "Kappa",
-		types: ["Poison", "Sol"],
+		types: ["Poison", "Ground"],
 		gender: "M",
 		baseStats: {hp: 188, atk: 28, def: 200, spa: 80, spd: 80, spe: 50},
 		abilities: {0: "Defeatist", H: "Guard Dog"},
