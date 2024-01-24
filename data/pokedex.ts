@@ -18448,7 +18448,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		types: ["Poison", "Ground"],
 		gender: "M",
 		baseStats: {hp: 188, atk: 28, def: 200, spa: 80, spd: 80, spe: 50},
-		abilities: {0: "Defeatist", H: "Guard Dog"},
+		abilities: {0: "Soluble Body", H: "Guard Dog"},
 		heightm: 1.8,
 		weightkg: 92,
 		color: "Black",
