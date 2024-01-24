@@ -40,6 +40,18 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 0.1,
 		num: 0,
 	},
+	solublebody: {
+        onSourceModifyDamage(damage, source, target, move) {
+            let mod = 1;
+            if (move.type === 'Fire') mod *= 2;
+            if (move.flags['contact']) mod /= 2;
+            return this.chainModify(mod);
+        },
+        flags: {breakable: 1},
+        name: "Soluble Body",
+        rating: 3.5,
+        num: 311,
+},
 	adaptability: {
 		onModifySTAB(stab, source, target, move) {
 			if (move.forceSTAB || source.hasType(move.type)) {
