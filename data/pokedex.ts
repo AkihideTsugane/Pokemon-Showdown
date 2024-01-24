@@ -18442,6 +18442,18 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		tags: ["Mythical"],
 		eggGroups: ["Undiscovered"],
 	},
+	kappa: {
+		num: 1026,
+		name: "Kappa",
+		types: ["Poison", "Sol"],
+		gender: "M",
+		baseStats: {hp: 188, atk: 28, def: 200, spa: 80, spd: 80, spe: 50},
+		abilities: {0: "Defeatist", H: "Guard Dog"},
+		heightm: 1.8,
+		weightkg: 92,
+		color: "Black",
+		eggGroups: ["Undiscovered"],
+	},
 	missingno: {
 		num: 0,
 		name: "MissingNo.",
