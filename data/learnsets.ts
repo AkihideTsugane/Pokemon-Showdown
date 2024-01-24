@@ -93584,7 +93584,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	},
 	kappa: {
 		learnset: {
-			astonish: ["9L1"],
+			deathshot: ["9L1"],
 			bodypress: ["9M"],
 			bodyslam: ["9M"],
 			breakingswipe: ["9M"],
