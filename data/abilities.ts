@@ -40,6 +40,27 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 0.1,
 		num: 0,
 	},
+	duelist: {
+        onBasePowerPriority: 21,
+        onBasePower(basePower, pokemon) {
+            let boosted = false;
+            for (const target of this.getAllActive()) {
+                if (target === pokemon) continue;
+                if (target.newlySwitched || this.queue.willMove(target)) {
+                    boosted = true;
+                    break;
+                }
+            }
+            if (boosted) {
+                this.debug('Duelist boost');
+                return this.chainModify([5325, 4096]);
+            }
+        },
+        flags: {},
+        name: "Duelist",
+        rating: 2.5,
+        num: 317,
+    },
 	solublebody: {
         onSourceModifyDamage(damage, source, target, move) {
             let mod = 1;
