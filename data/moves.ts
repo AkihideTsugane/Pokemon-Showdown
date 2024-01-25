@@ -18,6 +18,28 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Electric",
 		contestType: "Cool",
 	},
+toxicsyrup: {
+        num: 927,
+        accuracy: true,
+        basePower: 0,
+        category: "Status",
+        name: "Toxic Syrup",
+        pp: 10,
+      onHit(target, source, move) {
+            console.log("onHit Procced");
+            const result = target.setStatus('tox', source, move);
+            console.log("Passed set status with result of " + result);
+            if (!result) return result;
+            console.log("Function Complete");
+        },
+      heal: [1, 2],
+        priority: 0,
+        flags: {protect: 1, mirror: 1, heal: 1, metronome: 1},
+        secondary: null,
+        target: "self",
+        type: "Poison",
+        contestType: "Clever",
+   },
 	deathshot: {
 		num: 921,
 		accuracy: 50,
