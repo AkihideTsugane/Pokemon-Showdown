@@ -23,13 +23,13 @@ destinyshield: {
         num: 929,
         accuracy: true,
         basePower: 0,
-        category: "Status",
+        category: "Statut",
         name: "Destiny Shield",
         pp: 5,
-        priority: 4,
-        flags: {noassist: 1, failcopycat: 1},
+        priority: 5,
+       flags: {noassist: 1, failcopycat: 1, failinstruct: 1},
         stallingMove: true,
-        volatileStatus: 'protect',
+        volatileStatus: 'destinyshield',
         onPrepareHit(pokemon) {
             return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
         },
@@ -43,7 +43,6 @@ destinyshield: {
             },
             onTryHitPriority: 3,
             onTryHit(target, source, move) {
-                
                 if (!move.flags['protect'] || move.category === 'Status') {
                     if (['gmaxoneblow', 'gmaxrapidflow'].includes(move.id)) return;
                     if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
@@ -53,7 +52,6 @@ destinyshield: {
                     move.smartTarget = false;
                 } else {
                     this.add('-activate', target, 'move: Protect');
-						  this.boost({spa: -1});
                 }
                 const lockedmove = source.getVolatile('lockedmove');
                 if (lockedmove) {
@@ -62,13 +60,20 @@ destinyshield: {
                         delete source.volatiles['lockedmove'];
                     }
                 }
+                
+                    this.boost({spa: -1}, source, target);
+                
                 return this.NOT_FAIL;
+            },    
+                onHit(target, source, move) {
+                if (move.isZOrMaxPowered) {
+                    this.boost({spa: -1}, source, target);
+                }
             },
-        },
-         secondary: null,
+        },        
+  secondary: null,
         target: "self",
         type: "Psychic",
-        zMove: {effect: 'clearnegativeboost'},
         contestType: "Clever",
  },
 toxicsyrup: {
